@@ -25,7 +25,7 @@ const CartContent = ({ userId }: CartContentProps) => {
 
   useEffect(() => {
     if (searchParams.get("success")) {
-      toast.success("Payment Completed Successfully");
+      alert("Payment Completed Successfully");
       cart.removeAll()
     }
 
