@@ -60,7 +60,10 @@ const PageContent = ({ products }: PageContentProps) => {
           <Box className="gap-3 my-4">
             {currentParams &&
               Object.entries(currentParams).map(([key, value]) => (
-                <div className="px-4 py-1 cursor-pointer hover:shadow-md rounded-md bg-emerald-500/10 text-neutral-600 flex items-center gap-1">
+                <div
+                  key={key}
+                  className="px-4 py-1 cursor-pointer hover:shadow-md rounded-md bg-emerald-500/10 text-neutral-600 flex items-center gap-1"
+                >
                   {value}
                   <X onClick={() => handleClick(key)} className="w-4 h-4" />
                 </div>
@@ -71,11 +74,9 @@ const PageContent = ({ products }: PageContentProps) => {
       <div className="grid grid-cols-2 lg:grid-cols-3 w-full h-full gap-4 gap-y-24">
         {products.length > 0 ? (
           <>
-            {
-                products.map(product => (
-                    <PopularContent data={product} key={product.id}/>
-                ))
-            }
+            {products.map((product) => (
+              <PopularContent data={product} key={product.id} />
+            ))}
           </>
         ) : (
           <>
